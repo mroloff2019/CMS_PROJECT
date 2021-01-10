@@ -1,4 +1,4 @@
-<?php include "includes/header.php";?>
+<?php include "includes/admin_header.php";?>
 
 
 <body>
@@ -13,7 +13,7 @@
        
        
         <!-- Navigation -->
-        <?php include "includes/navigation.php";?>
+        <?php include "includes/admin_navigation.php";?>
 
         
         
@@ -39,7 +39,16 @@
                         </h1>
                         
                         <div class="col-xs-6">
-                       <form action="">
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                       <form action="" method="post">
                            <div class="form-group">
                               <label for="cat_title">Add Category</label>
                                <input type="text" class="form-control" name="cat_title">
@@ -54,6 +63,11 @@
               <!--  Add Category form-->
                    
                 <div class="col-xs-6">
+<?php 
+$query = "SELECT * FROM categories";
+$select_categories = mysqli_query($connection,$query);
+?>
+                      
                        <table class="table table-boardered table-hover" >
                            <thead>
                                <tr>
@@ -62,10 +76,24 @@
                                </tr>
                            </thead>
                            <tbody>
-                               <tr>
-                                   <td>Baseball Category</td>
-                                   <td>Basketball</td>
-                               </tr>
+
+<?php  
+while($row = mysqli_fetch_assoc($select_categories)) {
+$cat_id = $row['cat_id'];
+$cat_title = $row['cat_title']; 
+
+echo "<tr>";
+echo "<td>{$cat_id}</td>";
+echo "<td>{$cat_title}</td>";
+echo "<tr>";
+
+}
+
+?> 
+
+                              
+                            
+                              
                                
                            </tbody>
                        </table>
@@ -83,4 +111,4 @@
         </div>
         <!-- /#page-wrapper -->
 
-   <?php include "includes/footer.php";?>
+   <?php include "includes/admin_footer.php";?>
