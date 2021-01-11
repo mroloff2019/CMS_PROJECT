@@ -78,21 +78,7 @@ header("Location: categories.php"); //refreshes page
 
 }
     
-function updateAndInclude() {
-global $connection;
 
-if(isset($_GET['edit'])) {
-$cat_id = $_GET['edit'];
-
-include "includes/update_categories.php";
-
-
-
-
-}                           
-    
-    
-}
 
 
 
