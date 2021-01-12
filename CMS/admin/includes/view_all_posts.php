@@ -74,11 +74,11 @@ while($row = mysqli_fetch_assoc($select_posts)) {
 <?php 
 if(isset($_GET['delete'])) {
     
-  $the_post_id = $_GET['delete'];
-    
-    $query = "DELETE FROM posts WHERE post_id =  {$the_post_id}";
-   $delete_query = mysqli_query($connection, $query);
-    
+$the_post_id = $_GET['delete'];
+
+$query = "DELETE FROM posts WHERE post_id =  {$the_post_id}";
+$delete_query = mysqli_query($connection, $query);
+
 }
 
 
