@@ -53,8 +53,8 @@ switch($source) {
         include "includes/add_post.php";
         break;
         
-        case '2';
-        echo "nice";
+        case 'edit_post';
+        include "includes/edit_post.php";
         break;
         
         case '100';

@@ -49,18 +49,7 @@ while($row = mysqli_fetch_assoc($select_posts)) {
        
       
        
-<!--
-        <td>10</td>
-        <td>Michael</td>
-        <td>Bootstrap framework</td>
-        <td>Bootsrap</td>
-        <td>Status</td>
-        <td>Image</td>
-        <td>tags</td>
-        <td>Comments</td>
-        <td>Date</td>
-    
--->
+
 </tbody>
 </table>
 
