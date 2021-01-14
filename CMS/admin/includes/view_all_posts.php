@@ -36,7 +36,7 @@ while($row = mysqli_fetch_assoc($select_posts)) {
     echo "<td>$post_title</td>";
     
     
-    $query = "SELECT * FROM categories WHERE cat_id = $post_category_id ";
+    $query = "SELECT * FROM categories WHERE cat_id = {$post_category_id} ";
     $select_categories_id = mysqli_query($connection,$query);
 
 
@@ -45,7 +45,7 @@ while($row = mysqli_fetch_assoc($select_posts)) {
     $cat_title = $row['cat_title'];   
     
     
-    echo "<td>$cat_title</td>";
+    echo "<td>{$cat_title}</td>";
     
     
     }
