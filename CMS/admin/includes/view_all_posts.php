@@ -13,6 +13,8 @@
             <th>Tags</th>
             <th>Comments</th>
             <th>Date</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -38,7 +40,7 @@ while($row = mysqli_fetch_assoc($select_posts)) {
     echo "<td>$post_author</td>";
     echo "<td>$post_title</td>";
     
-    
+
     $query = "SELECT * FROM categories WHERE cat_id = {$post_category_id} ";
     $select_categories_id = mysqli_query($connection,$query);
 
@@ -63,7 +65,7 @@ while($row = mysqli_fetch_assoc($select_posts)) {
     echo "<td><a href='posts.php?delete={$post_id}'>Delete</a></td>";
         echo "</tr>";
 
-}
+    }
        
         ?>
        
@@ -98,6 +100,7 @@ $the_post_id = $_GET['delete'];
 
 $query = "DELETE FROM posts WHERE post_id =  {$the_post_id}";
 $delete_query = mysqli_query($connection, $query);
+//header("Location: view_all_posts.php");
 
 }
 
