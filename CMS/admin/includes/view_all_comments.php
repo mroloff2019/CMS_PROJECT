@@ -1,4 +1,7 @@
-<table class="table table-boardered table-hover">
+
+   
+
+   <table class="table table-boardered table-hover">
     <thead>
         <tr>
             <th>Id</th>
@@ -31,7 +34,6 @@ while($row = mysqli_fetch_assoc($select_comments)) {
         
 
         echo "<tr>";
-    
     echo "<td>$comment_id</td>";
     echo "<td>$comment_author</td>";
     echo "<td>$comment_content</td>";
@@ -55,13 +57,15 @@ while($row = mysqli_fetch_assoc($select_comments)) {
     echo "<td>$comment_status</td>";
     
     
-    $query = "SELECT * posts WHERE post_id = $comment_post_id";
+    $query = "SELECT * FROM posts WHERE post_id = $comment_post_id";
     $select_post_id_query = mysqli_query($connection, $query);
-    while($row = mysqli_fetch_assoc($select_post_id_query)){
+    while($row = mysqli_fetch_assoc($select_post_id_query)) {
     $post_id = $row['post_id'];
     $post_title = $row['post_title'];
         
-        echo "<td><a href='../post.php?p_id=$post_id'><$post_title</a></td>";
+  
+        
+        echo "<td><a href='../post.php?p_id=$post_id'>$post_title</a></td>";
         
     }
     
@@ -70,10 +74,9 @@ while($row = mysqli_fetch_assoc($select_comments)) {
     
     
     echo "<td>$comment_date</td>";
-    echo "<td><a href='posts.php?source=edit_post&p_id='>Approve</a></td>";
-    echo "<td><a href='posts.php?delete='>Unapprove</a></td>";
-    echo "</tr>";
-    echo "<td><a href='posts.php?delete='>Delete</a></td>";
+    echo "<td><a href='comments.php?approve=$comment_id'>approve</a></td>";
+    echo "<td><a href='comments.php?unapprove=$comment_id'>unapprove</a></td>";
+    echo "<td><a href='comments.php?delete=$comment_id'>delete</a></td>";
     echo "</tr>";
 
 }
@@ -82,35 +85,45 @@ while($row = mysqli_fetch_assoc($select_comments)) {
        
       
        
-<!--
-        <td>10</td>
-        <td>Michael</td>
-        <td>Bootstrap framework</td>
-        <td>Bootsrap</td>
-        <td>Status</td>
-        <td>Image</td>
-        <td>tags</td>
-        <td>Comments</td>
-        <td>Date</td>
-    
--->
+
 </tbody>
 </table>
 
 
-
-
-
-
-
-
 <?php 
+if(isset($_GET['approve'])){
+    
+    $the_comment_id = $GET['approve'];
+    
+    $query = "UPDATE comments SET comment_status = 'approve' WHERE comment_id = $comment_id ";
+    $approve_comment_query = mysqli_query($connection, $query);
+    header("Location: comments.php");
+    
+}
+
+
+
+
+if(isset($_GET['unapprove'])){
+    
+    $the_comment_id = $GET['unapprove'];
+    
+    $query = "UPDATE comments SET comment_status = 'unapprove' WHERE comment_id = $comment_id ";
+    $unapprove_comment_query = mysqli_query($connection, $query);
+    header("Location: comments.php");
+
+
+}
+
+
+
 if(isset($_GET['delete'])) {
     
-$the_post_id = $_GET['delete'];
+$the_comment_id = $_GET['delete'];
 
-$query = "DELETE FROM posts WHERE post_id =  {$the_post_id}";
+$query = "DELETE FROM comments WHERE comment_id =  {$the_comment_id}";
 $delete_query = mysqli_query($connection, $query);
+header("Location: comments.php");
 
 }
 
