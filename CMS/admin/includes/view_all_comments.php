@@ -93,7 +93,7 @@ while($row = mysqli_fetch_assoc($select_comments)) {
 <?php 
 if(isset($_GET['approve'])){
     
-    $the_comment_id = $GET['approve'];
+    $the_comment_id = $_GET['approve'];
     
     $query = "UPDATE comments SET comment_status = 'approve' WHERE comment_id = $comment_id ";
     $approve_comment_query = mysqli_query($connection, $query);
@@ -106,7 +106,7 @@ if(isset($_GET['approve'])){
 
 if(isset($_GET['unapprove'])){
     
-    $the_comment_id = $GET['unapprove'];
+    $the_comment_id = $_GET['unapprove'];
     
     $query = "UPDATE comments SET comment_status = 'unapprove' WHERE comment_id = $comment_id ";
     $unapprove_comment_query = mysqli_query($connection, $query);
