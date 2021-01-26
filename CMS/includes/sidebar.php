@@ -8,7 +8,7 @@
 
                 <!-- Blog Search Well -->
                 <div class="well">
-                    <h4>Search</h4>
+                    <h4>Login</h4>
                     <form action="search.php" method="post">
                     <div class="input-group">
                         <input name="search" type="text" class="form-control">
@@ -21,6 +21,45 @@
                     </form><!-------search form -->
                     <!-- /.input-group -->
                 </div>
+                
+                
+<!-- Login -->
+<div class="well">
+<h4>Search</h4>
+<form action="includes/login.php" method="post">
+<div class="from-group">
+<input name="username" type="text" class="form-control" placeholder="Enter Username">
+
+</div>
+<div class="input-group">
+<input name="password" type="password" class="form-control" placeholder="Enter password">
+<span class="input-group-btn">
+   <button class="btn btn-primary" name="login" type="submit">Submit
+       
+   </button>
+    
+    
+    
+    
+    
+</span>
+</div>
+
+
+
+
+</form><!-------search form -->
+<!-- /.input-group -->
+</div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
                 
                 
