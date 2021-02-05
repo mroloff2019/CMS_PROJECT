@@ -8,7 +8,7 @@
 
                 <!-- Blog Search Well -->
                 <div class="well">
-                    <h4>Login</h4>
+                    <h4>Search</h4>
                     <form action="search.php" method="post">
                     <div class="input-group">
                         <input name="search" type="text" class="form-control">
@@ -25,7 +25,7 @@
                 
 <!-- Login -->
 <div class="well">
-<h4>Search</h4>
+<h4>Login</h4>
 <form action="includes/login.php" method="post">
 <div class="from-group">
 <input name="username" type="text" class="form-control" placeholder="Enter Username">
